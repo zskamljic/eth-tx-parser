@@ -84,11 +84,11 @@ fn decode_transaction(transaction: &str, estimate: bool) -> Result<TransactionDa
 
 #[derive(Debug, Serialize)]
 struct Transaction {
-    nonce: usize,
-    gas: usize,
-    gas_limit: usize,
+    nonce: u128,
+    gas: u128,
+    gas_limit: u128,
     target_address: String,
-    value: usize,
+    value: u128,
     data: String,
     v: String,
     r: String,

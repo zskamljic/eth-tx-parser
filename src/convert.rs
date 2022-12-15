@@ -13,15 +13,15 @@ pub fn to_string(node: &Rlp) -> Result<String> {
     Ok(format!("0x{}", hex::encode(to_bytes(node)?)))
 }
 
-pub fn to_big_int(node: &Rlp) -> Result<usize> {
+pub fn to_big_int(node: &Rlp) -> Result<u128> {
     let bytes = to_bytes(node)?;
     if bytes.is_empty() {
         return Ok(0);
     }
-    let mut value = 0usize;
+    let mut value = 0u128;
     for datum in bytes {
         value <<= 8;
-        value |= datum as usize;
+        value |= datum as u128;
     }
     Ok(value)
 }
